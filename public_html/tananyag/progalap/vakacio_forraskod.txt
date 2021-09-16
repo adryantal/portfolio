@@ -1,0 +1,5 @@
+
+v = "vakáció"
+szokoz = " "
+for i in range(len(v), 0, -1):
+    print((szokoz * i) + v[i - 1:])

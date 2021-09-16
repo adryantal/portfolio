@@ -1,0 +1,312 @@
+@charset "utf-8";
+
+
+/*Fő gridek*/
+
+main{
+    display: grid;
+    grid-template-areas: 
+        "h"
+        "n"
+        "as"
+        "a"
+        "s"
+        "f";    
+
+}
+
+header {
+    grid-area: h;
+    display: flex;
+    justify-content: space-between;
+}
+nav {
+    grid-area: n;    
+}
+aside {
+    grid-area: as;
+
+}
+article {
+    grid-area: a;
+}
+section {
+    grid-area: s;
+}
+footer {
+    grid-area: f;
+}
+
+/*Navigáció*/
+
+nav{
+    display: grid;
+    align-content: center;
+}
+nav ul{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    align-items: center;
+    justify-items: center;
+
+}
+
+nav li{
+    display: grid;
+    grid-template-rows: 1fr;   
+    align-items: center;
+    justify-items: center;    
+}
+
+
+/*Főoldal article elem felosztása további gridekre*/
+
+.art_container_index{
+    display: grid;
+    grid-template-areas:
+        "fc fc fc"
+        "sz sz sz"
+        "c1 c1 k1"
+        "sz1 sz1 k1"
+        "c2 c2 k2"
+        "sz2 sz2 k2" ;         
+
+}
+
+.art_focim{
+    grid-area: fc;   
+}
+
+.art_szoveg{
+    grid-area: sz;    
+}
+
+.art_cim1{
+    grid-area: c1; 
+    display: grid;
+    align-items: center;
+}
+
+.art_szoveg1{
+    grid-area: sz1;
+   
+}
+
+.art_kep1{
+    grid-area: k1;       
+}
+
+.art_cim2{
+    grid-area: c2;
+    display: grid;
+    align-items: center;
+}
+
+.art_szoveg2{
+    grid-area: sz2;    
+}
+
+.art_kep2{
+    grid-area: k2;    
+}
+
+
+/*Footer*/
+
+footer{
+    display: grid;
+    place-content: center;
+}
+
+
+
+/*"Kapcsolat" article eleme*/
+
+
+/*Zene article eleme*/
+
+.art_container_zene{
+    display: grid;
+    grid-template-areas:
+        "fc fc fc"
+        "sz sz sz"
+        "c1 c1 k1"
+        "sz1 sz1 k1"
+        "c2 c2 k2"
+        "sz2 sz2 k2"
+        "sz2 sz2 k3" 
+        "sz2 sz2 k4" 
+        "sz2 sz2 k5";
+} 
+
+
+    
+.art_kep3{
+    grid-area: k3;       
+}
+
+.art_kep4{
+    grid-area: k4;       
+}
+
+.art_kep5{
+    grid-area: k5;       
+}
+    
+
+/*Munkáim article eleme*/
+
+.art_container_munkaim{
+    display: grid;
+    grid-template-areas:
+        "fc"
+        "sz"
+        "c1"
+        "sz1"
+        "c2"
+        "sz2"
+        "c3"
+        "sz3" ;
+}
+
+.art_szoveg3{
+    grid-area: sz3;
+    
+}
+
+.art_cim3{
+    grid-area: c3;
+    display: grid;
+    align-items: center;
+}
+
+
+
+/*Gorogorszag*/
+
+
+.art_container_gorog{
+    display: grid;
+    grid-template-areas:
+        "fc"
+        "sz"        
+        "sl";    
+} 
+    
+.art_slideshow {
+        grid-area: sl;      
+        
+        
+}
+
+
+
+
+
+
+/*Reszponzivitás*/
+
+@media screen and (max-width:768px){
+
+
+    main{    
+        max-width: 768px;
+        width: 100%;
+        margin: 0;       
+    }
+
+    header{
+        max-width: 768px;        
+    }
+
+    nav{
+        background: darkcyan;   
+    }
+
+    nav li{
+        font-size: 13px;
+        padding: 5px;
+        height: 30px;
+    }
+
+    .aside_img{
+        width: 100%;
+        height: auto;    
+    }
+
+    /*Kezdőlap*/
+
+    .art_container_index{
+        display: grid;
+        grid-template-areas:
+            "fc "
+            "sz"
+            "c1"            
+            "sz1"
+            "k1"
+            "c2"
+            "sz2"
+            "k2";        
+    }
+
+    
+    .art_cim1, .art_cim2, .art_cim3, .art_focim, .art_kep1, .art_kep2, .art_kep3, .art_kep4, .art_kep5{
+        display: grid;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .art_kep1 img, .art_kep2 img, .art_kep3 img, .art_kep4 img, .art_kep5 img{        
+        width: 100%;
+        margin-left: 0;        
+    }    
+    
+    
+    .art_slideshow{
+        width: 100%;
+    }
+
+    /*Kapcsolat*/
+
+    /*Zene*/
+
+    .art_container_zene{
+        display: grid;
+        grid-template-areas:
+            "fc fc"
+            "sz sz"
+            "c1 c1"            
+            "sz1 sz1"
+            "k1 k1"
+            "c2 c2"
+            "k2 k3"
+            "k4 k5"
+            "sz2 sz2";
+             
+    }
+
+    .art_kep4, .art_kep5{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    iframe{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+}
+
+/*Gorogorszag*/
+
+
+
+
+
+@media screen and (max-width:640px){
+    .art_kep2, .art_kep4{
+        
+    margin-right: 10px;
+    }
+    
+}

@@ -1,0 +1,125 @@
+1. Írjunk programot, amely egy bekért, 0 és 255 közötti nemnegatív egész decimális számot binárissá alakít!
+
+try:
+
+    valid = True
+
+    while valid:
+        x = int(input('Adjon meg egy nemnegatív decimális számot 0 és 255 között: '))
+        if x<0 or x>255:
+            print('HOPPÁ, helytelen szám! Próbálja újra egy 0 és 255 közötti nemnegatív, egész szám megadásával!')
+        else:
+            valid = False
+
+#Függvény, amely egy decimális számot binárissá alakít
+    def binarissa(x):
+        m = 0
+        mar = x
+        bin = []
+
+        print(x,'bináris alakja:',end=' ')
+
+        for i in range(7,-1,-1):
+            m=mar%(2**i)
+            if m==mar:
+                bin.append(0)
+            elif m!=0:
+                bin.append(1)
+                mar = m
+            elif m==0:
+                bin.append(1)
+                mar = 0
+
+
+        for j in range(len(bin)):
+            print(bin[j],end=' ')
+
+
+    binarissa(x)
+
+except ValueError:
+    print("Érvénytelen adat. A program leáll. Indítsa újra!")
+
+
+
+
+
+
+2. A fentebbi feladat megfejtését felhasználva írjunk programot, amely bájtonként bekéri egy IPv4 cím decimális változatát, majd kiírja az egész IP címet bináris formában!
+
+
+try:
+    ip = []
+    def binarissa(x):
+        m = 0                                  #az "új" maradék tárolására való
+        mar = x                                #mar: a "régi" maradék
+        bin = []
+
+        #print(x, 'bináris alakja:', end=' ')  
+        for i in range(7, -1, -1):             # 2^7-ről indulunk  2^0-ig tart a ciklus, lépésenként 1-el csökkentve a kitevő értékét
+            m = mar % (2 ** i)                 #a ("régi") maradékot 2 i-edik hatványával maradékosan osztjuk (kiinduló esetben ez megegyezik a kezdeti decimális számmal)
+            if m == mar:                       #ha a régi maradék "újabb kört fut", mely által ismét ő lesz az "új maradék" is (mivel MÉG MINDIG kisebb, mint 2^i), akkor 0 lesz a bit értéke*
+                bin.append(0)
+            elif m != 0:                       #ha van maradék, akkor 1 lesz a bit értéke; mar váltózó értéke pedig az "új maradék lesz"
+                bin.append(1)
+                mar = m
+            elif m == 0:                       #ha nincs maradék, akkor 0 lesz a bit értéke; mar változó értéke 0
+                bin.append(1)
+                mar = 0
+
+        ip.append(bin)
+
+    b = 1
+
+    while b < 5:
+        valid = True
+        while valid:
+            x = int(input('Adja meg a(z) ' + str(b) + '. bájt értékét decimális formában (0-255): '))
+            if x < 0 or x > 255:
+                print('HOPPÁ, helytelen szám! Próbálja újra egy 0 és 255 közötti nemnegatív, egész szám megadásával!')
+            else:
+                binarissa(x)
+                valid = False
+        b += 1
+
+    #Ellenőrzés:
+    #print(ip)
+    print('--------*---------*--------')
+    print('Az IPv4 cím bináris változata: ')
+
+    for k in range((len(ip))):
+        for l in range(len(ip[k])):
+            print(ip[k][l],end=' ')
+        if k < len(ip)-1:
+            print('.', end=' ')
+        else:
+            print('')
+
+except ValueError:
+    print("Érvénytelen adat! A program leáll. Indítsa újra!")
+
+
+
+pl.
+163
+
+2^7 - 163-ban a 128= 1, m:35	1
+2^6 - 35-ben a 64= 0		0
+2^5 - 35-ben a 32=1, m:3	1
+2^4 - 3-ban a 16=0		0
+2^3 - 3-ban a 8=0		0
+2^2 - 3-ban a 4=0		0
+2^1 - 3-ban a 2=1, m:1		1
+2^0 - 1-ben az 1=1 		1
+
+10100011
+
+(76543210 ---> 2 kitevőinek bitenkénti helyiértékei)
+
+*Esetek:
+1. Ha van maradék (első alkalommal!), tehát ha az aktuális decimális érték osztható a 2 aktuális hatványára emelt számmal, akkor a bit értéke 1
+2. Ha nincs maradék, tehát az aktuális decimális érték NEM osztható a 2 aktuális hatványára emelt számmal, akkor a bit értéke 0
+3. Ha egy adott maradék egymás után több kört is fut, akkor a második körtől kezdve 0 a bit értéke! (Egészen addig, amíg a maradék oszthatóvá nem válik a 2 aktuális hatványára emelt számmal)
+
+
+

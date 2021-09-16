@@ -1,0 +1,768 @@
+@charset "utf-8";
+
+
+
+body{
+    background: url('images/bg_top_pattern.jpg');
+    background-attachment: fixed;
+    background-size: auto 100%;  
+
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0px;    
+} 
+
+li {
+    list-style-type: none;
+}
+
+main{
+    width: 80%;
+    max-width: 852px;
+    margin: auto;
+
+}
+
+/*Header*/
+
+header{
+    height: 112px;
+    padding: 3px;    
+}
+
+.left{
+    display: flex;
+    align-items: flex-end;    
+}
+
+
+.left img{
+    position: relative;
+}
+
+.left img:active{
+    height: 90px;
+    filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.5));
+}
+
+
+.right{
+    display: flex;
+    align-items: flex-end;       
+}
+
+.right img{
+    opacity: 0.7;
+    padding: 2px;    
+}
+
+.right img:hover{
+    opacity: 1;    
+}
+
+.right img:hover, .left img:hover{
+    filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.5));
+}
+
+
+hr{
+   
+    border: 1px dotted rgba(189,183,107,0.9);    
+    border-radius: 5px;
+    filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.3));
+    width: 100%;
+    
+}
+
+/*Navigáció*/
+
+nav{
+    background: url('images/bg-nav.png') no-repeat;
+    background-size: cover;      
+    box-shadow: 2px 1px 5px 1px gray;    
+    margin-bottom: 3px;
+    
+}
+
+nav ul{
+    padding: 0; 
+    margin: 0;
+
+}
+
+nav li{    
+    font-family: 'Margarine',cursive;        
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 3px brown;
+    width: 100%;
+    height: 45px;
+    border-right: 1px solid lightsteelblue;
+    border-bottom: 1px solid #999658;
+    border-top: 1px solid darkcyan;        
+    opacity: 0.85;
+    transition: 1s all;
+    transition-property: background, opacity, border, text-shadow, filter;
+}
+
+nav li:hover{
+    background: brown;
+    opacity: 1;
+    border-bottom: 1px solid beige;    
+    border-top: 1px solid beige;    
+    text-shadow: 1px 1px 1px cyan;
+    filter: drop-shadow(0rem 0.1rem 0.2rem beige);
+
+    animation: buttonswing 0.5s;
+    animation-name: buttonswing;
+    animation-iteration-count: 2;
+}
+@keyframes buttonswing {      
+    25% {transform: skewY(3deg);}             
+    75% {transform: skewY(-3deg);}
+
+}
+
+nav li:last-child{
+    border-right: none;
+}
+
+nav li a{
+    color: white;
+}
+
+nav li a:hover{    
+
+}
+
+
+
+
+/*Aside*/
+
+
+aside{
+    position: relative;
+}
+
+.aside_img {
+    border: 2px double rgba(255,255,255,0.2);
+    border-radius: 4px;
+    box-shadow: 2px 3px 6px 3px gray;            
+}
+
+a {
+    text-decoration: none;
+}
+
+.boat {    
+    position: absolute;      
+    left: 5%;
+    top: 63%;    
+    width: 10%;
+
+    animation: sail 60s linear; 
+    animation-iteration-count: infinite ;}
+
+@keyframes sail {  
+    0%{transform: translateX(0px);}
+    25%{transform: translateX(540%);}   
+    45%{transform: translateX(0px);}    
+    75%{transform: translateX(540%);}    
+    /*95%{ transform: rotateY(180deg);}*/
+    95%{transform: translateX(0px);}
+}
+
+
+
+
+/*Főoldal article elem*/
+
+article {    
+    border: 1px solid   #999658;    
+    box-shadow: 2px 1px 5px 1px gray;
+    padding: 5px;
+    border-radius: 4px;
+     
+}
+
+.art_container_index, .art_container_kapcs, .art_container_zene, .art_container_munkaim, .art_container_gorog{
+    margin-top: 10px;
+    
+}
+
+.art_cim1, .art_cim2, .art_cim3{
+    text-align: left;
+    color: darkcyan;
+    text-transform: uppercase;
+    font-family: 'Margarine',cursive;    
+    font-weight: bolder;
+}
+
+.art_focim{
+    font-size: 35px;
+    text-shadow: 1px 1px 4px brown;
+    color: #05A499;
+    text-align: left;    
+    text-transform: uppercase;
+    font-family: 'Margarine',cursive;    
+    font-weight: bolder;
+}
+
+.art_cim1, .art_cim2, .art_cim3, .art_kep1, .art_kep2, .art_kep3, .art_kep4, .art_kep5{   
+    font-size: 20px;
+    margin-top: 20px;   
+}
+
+.art_szoveg1, .art_szoveg2, .art_szoveg3{
+    background: rgba(189,183,120,0.5);    
+    padding: 3px;
+}
+
+.art_cim1, .art_cim2, .art_cim3 {
+    border-bottom: 1px dotted #5a4535;
+    border-top: 1px dotted #5a4535;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background: rgba(190,165,50,0.5);   
+    height: 40px;
+}
+
+.art_szoveg, .art_szoveg1, .art_szoveg2, .art_szoveg3{
+    color: #5a4535;
+    text-align: justify;
+    font-size: 16px;
+    font-family: 'Calibri', Garamond, 'Comic Sans MS';
+
+}
+
+.art_szoveg2 a, .art_szoveg3 a{
+    color: darkred;
+}
+
+.art_szoveg2 a:hover, .art_szoveg3 a:hover{
+    text-decoration: underline;
+}
+
+.kiemeles{
+    font-weight: bolder;    
+}
+
+
+.art_kep1 img, .art_kep2 img, .art_kep3 img, .art_kep4 img, .art_kep5 img{      
+    margin-left: 15px;
+    opacity: 0.7;
+    transition: 1s all;
+    transition-property: opacity, transform;
+}
+
+.art_kep1 img:hover, .art_kep2 img:hover, .art_kep3 img:hover, .art_kep4 img:hover, .art_kep5 img:hover{      
+
+    opacity: 1;           
+    filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.5));
+    animation: swing 1s;
+    animation-name: swing;
+    animation-iteration-count: infinite;
+}
+@keyframes swing {      
+    25% {transform: rotateZ(-2deg);}             
+    75% {transform: rotateZ(2deg);}
+
+}
+
+
+/*"Kapcsolat" article eleme & Űrlap formázása*/
+
+
+.urlap{
+    margin-top: 10px; 
+}
+
+
+
+.urlap legend{
+    text-shadow: 2px 1px 2px brown;
+    color: #48D1CC;
+    font-family: 'Margarine',cursive;     
+    border: 1px dotted #66CDAA;
+    border-radius: 4px;
+    background: rgba(65,42,42,0.2);
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.urlap fieldset{
+
+    border: 1px dotted #5a4535;
+    border-radius: 5px;   
+    background: rgba(189,183,120,0.5);
+    padding: 10px;
+    font-size: 16px;
+    color: #5a4535;
+    text-align: justify;
+    font-family: 'Calibri', Garamond, 'Comic Sans MS';
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.urlap input[type=text], .urlap select, .urlap textarea {
+    width: 100%;    
+    border: 1px solid goldenrod;
+    border-radius: 3px;
+    resize: vertical;
+    background: beige;
+    box-shadow: 2px 1px 3px 1px gray;
+}
+
+.urlap input[type=text]{
+    height: 20px;     
+}
+
+.urlap input[type=text], .urlap textarea{
+outline-color : rgba(23,142,153,0.6) !important;
+}
+
+.urlap textarea{
+    height: 150px;    
+    box-shadow: 2px 1px 3px 1px gray;
+    background: beige;
+}
+
+.cimke {
+    width: 25%;
+    float: left;    
+    padding-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.szovegmezo {
+    width: 75%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Következő sorba; float-ok törlése */
+.clear{  
+    clear: both; 
+}
+
+.urlap input[type=submit],.urlap input[type=reset] {
+    background-color: rgba(0,128,128,0.7);
+    font-family: 'Margarine',cursive;
+    letter-spacing: 1px;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid brown;
+    border-radius: 3px;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+    margin-top: 10px;
+    transition: 1s all;
+    transition-property: background, border, text-shadow;
+}
+
+input[type=submit]:hover,input[type=reset]:hover, .table_1 td:nth-child(3) a:hover{
+    background: brown;
+    opacity: 1;
+    border: 1px solid beige;        
+    text-shadow: 0.5px 0.5px 1px darkcyan;
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.5));
+}
+
+
+/*Zene*/
+
+
+.doltbetu{
+    font-style: italic;
+
+}
+
+.art_szoveg p{
+    margin: 0;    
+}
+
+iframe {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    width: 100%;
+    height: 320px;
+    box-shadow: 2px 1px 5px grey;
+}
+
+iframe:hover{
+    filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.5));
+}
+
+.art_container_zene table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.art_container_zene table td:nth-child(odd) {
+    width: 20%;
+}
+
+.art_container_zene table tr:nth-child(even):hover {
+    background: rgba(0,128,128,0.2); 
+    
+}
+
+.art_container_zene table tr:nth-child(odd):hover {
+    background: rgba(245,245,220,0.25);
+       
+}
+
+
+
+
+/*Munkáim*/
+
+.table_1
+{
+    border-collapse: collapse;
+    border: 1px dotted bisque;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;       
+}
+
+.table_1 th:nth-child(2), table_1 td:nth-child(2){
+    width: 50%;      
+}
+
+.table_1 li{
+    list-style-type: disc;
+    margin-left: 20px;    
+}
+
+.table_1 th:nth-child(odd), table_1 td:nth-child(odd){
+    width: 25%
+}
+
+.table_1 th {
+    text-align: center;
+    background: rgb(210,105,30,0.2);
+    border-bottom: 1px dotted bisque;
+    height: 50px;
+}
+
+.table_1 td:nth-child(2){
+    text-align: justify;
+    background: rgba(235,220,200,0.2);
+    border-left: 1px dotted bisque;
+    border-right: 1px dotted bisque; 
+    border-bottom: 1px dotted darkkhaki;
+}
+
+.table_1 th, .table_1 td{
+    padding: 10px;  
+}
+
+
+.table_1 td:nth-child(odd){
+    background: rgba(0,128,128,0.1);
+    /*text-shadow: 2px 1px 2px brown;*/
+    color: brown;
+    font-family: 'Calibri', Garamond, 'Comic Sans MS';  
+    font-weight: normal;
+    text-shadow: 1px 1px 1px darkkhaki;
+    background: rgba(65,42,42,0.2);
+    box-shadow: 0.5px 0.5px 0.5px 1.5px darkkhaki;  
+
+}
+
+.table_1 td:nth-child(1){    
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+
+}
+
+.table_1 tr {
+    transition: 0.5s all;
+    transition-property: background;
+}
+
+.table_1 tr:hover{
+    background: rgba(245,245,220,0.3);    
+}
+
+.table_1 td:nth-child(3) {
+    text-align: center;
+    vertical-align: center;      
+
+}
+
+.table_1 td:nth-child(3) a{
+    background-color: rgba(0,128,128,0.5);
+    font-family: 'Margarine',cursive;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: bisque;
+    padding: 5px 10px;
+    border: 1px solid brown;
+    border-radius: 3px;
+    cursor: pointer;       
+    margin-right: 5px;
+    margin-top: 10px;
+    transition: 1s all;
+    transition-property: background, border, text-shadow, box-shadow, color;
+    box-shadow: 0.5px 0.5px 0.5px 2px darkkhaki;
+}
+
+.table_1 td:nth-child(3) a:hover{
+    background: brown;
+    opacity: 1;
+    border: 1px solid beige;        
+    text-shadow: 0.5px 0.5px 1px darkcyan;
+    box-shadow: 0.5px 0.5px 3px 2px darkkhaki;
+    color: beige;
+    text-decoration: none;
+}
+
+
+.table_1 img{
+    float: left;
+    width: auto;
+}
+
+.art_szoveg1 .table_1 tr:first-child{ 
+    height: auto;
+}
+
+.art_szoveg1 .table_1 tr{
+    height: 70px;
+}
+
+.table_1 img{  
+    padding: 3px;
+    margin-right: 10px;
+    opacity: 0.8;
+    /*transform: rotateY(10deg);*/
+    transition: 1s all;
+    transition-property: opacity, transform;
+    border: 1px solid bisque;
+    border-radius: 4px;
+    box-shadow: 0.5px 0.5px 3px 3px darkkhaki;
+    float: left;
+    
+}
+
+.table_1 img:hover{      
+
+    opacity: 1; 
+    animation: swing 1s;
+    animation-name: swing;
+    animation-iteration-count: infinite;
+}
+@keyframes swing {      
+    25% {transform: rotateZ(-2deg);}             
+    75% {transform: rotateZ(2deg);}
+
+}
+
+
+
+/*Gorogorszag*/
+
+.boat_greek {    
+    position: absolute;      
+    left: 35%;
+    top: 43%;    
+    width: 10%;
+    animation: sail_greek 75s linear; 
+    animation-iteration-count: infinite;
+}
+
+@keyframes sail_greek {  
+    0%{transform: translateX(0px);}
+    25%{transform: translateX(490%);}          
+    50%{transform: translateX(0px);}   
+    75%{transform: translateX(490%);}    
+    /*95%{ transform: rotateY(180deg);}*/
+    95%{transform: translateX(0px);}
+}
+
+.art_slideshow{
+    width: 64vh;
+    height: 48vh;  
+    background: url(galeria/portara2.jpg);
+    animation: slideshow 60s infinite ease-in-out;  
+    background-size: cover;
+    border: 1px double lightslategray;
+    border-radius: 4px;
+    background-position: center top;
+    margin: auto;    
+    box-shadow: 2px 2px 6px 2px lightslategray;
+    opacity: 0.8;
+
+} 
+
+@keyframes slideshow{
+
+    5%{
+        background: url(galeria/plaka.jpg);
+        background-size: cover;
+        background-position: center center;
+    }  
+
+    10%{
+        background: url(galeria/naxos_chora.jpg);
+        background-size: cover;
+        background-position: center center;        
+    }
+
+    15%{
+        background: url(galeria/loutro1.jpg);
+        background-size: cover;
+        background-position: center center;
+
+    }  
+
+    20%{
+        background: url(galeria/loutro2.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    25%{
+        background: url(galeria/seitan_limania1.jpg);
+        background-size: cover;
+        background-position: center center;
+    }  
+
+    30%{
+        background: url(galeria/seitan_limania2.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    35%{
+        background: url(galeria/krikri.jpg);
+        background-size: cover;
+        background-position: center center;
+    }  
+
+    40%{
+        background: url(galeria/seitan_limania3.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    45%{
+        background: url(galeria/paros_naoussa.jpg);
+        background-size: cover;
+        background-position: center center;
+    }  
+
+    50%{
+        background: url(galeria/paros_naoussa2.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    55%{
+        background: url(galeria/paros_krios.jpg); 
+        background-size: cover;
+        background-position: center center;
+    }  
+
+    60%{
+        background: url(galeria/katigiorgis.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    65%{
+        background: url(galeria/lalaria.jpg);
+        background-size: cover;
+        background-position: center center;
+    }  
+
+    70%{
+        background: url(galeria/skopelos_milia.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    75%{
+        background: url(galeria/antiparos.jpg); 
+        background-position: top center;
+        background-size: cover;
+
+    }  
+
+    80%{
+        background: url(galeria/skiathos.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+
+    85%{
+        background: url(galeria/portara.jpg); 
+        background-position: center center;
+        background-size: cover;
+    } 
+
+    90%{
+        background: url(galeria/seitan_limania4.jpg);
+        background-size: cover;
+        background-position: bottom center;
+    }
+
+    95%{
+        background: url(galeria/falassarna.jpg); 
+        background-position: center center;
+        opacity: 1;
+    }
+
+
+    
+
+}
+
+
+    .art_container_gorog .art_szoveg {
+        margin-bottom: 15px;
+    }
+
+    .art_container_gorog{    
+        margin-bottom: 15px;
+
+    }
+
+
+
+    /*Footer*/
+
+    footer{
+        border: 1px solid #999658;
+        border-radius: 4px;        
+        margin-top: 3px;
+        background: rgba(0,128,128,0.7);
+        height: 40px;
+        text-align: center;
+        box-shadow: 2px 1px 5px 1px gray;
+        color: white;
+        letter-spacing: 1px;
+        opacity: 0.85;
+        font-size: 13px;
+        font-family: 'Margarine',cursive;
+        text-shadow: 1px 2px 3px brown;
+
+    }
+
+
+
+

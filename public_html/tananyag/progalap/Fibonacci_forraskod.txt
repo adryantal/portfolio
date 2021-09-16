@@ -1,0 +1,115 @@
+#Feladat
+#Írjunk programot, amely:
+#a) Kiírja a Fibonacci-sorozat első n elemét
+#b) Egy nemnegatív, egész számról megállapítja, a sorozat tagja-e, és ha igen, akkor hanyadik.
+
+
+
+try:
+
+    sorelvalasztas = "----*----*----*----*----*----"
+
+    #Függvények listája
+
+
+    #Visszaadja a Fibonacci sorozat elso n elemet:
+    def fib_sorozat_n(n):
+        fib_szamok = list(range(n))
+        i = 0
+        while i < n:
+            if i == 0:
+                fib_szamok[i] = 0
+            elif i == 1:
+                fib_szamok[i] = 1
+            elif i >= 2:
+                fib_szamok[i] = fib_szamok[i-2] + fib_szamok[i-1]
+            i += 1
+        return(fib_szamok)
+
+
+    #Egy egydimenzios lista elemeit irja ki
+    def lista_elemei_kiir(lista):
+        for i in range(len(lista)):
+            print("Az",i+1,". elem:",(lista[i]))
+
+
+    #Eleme-e egy szam egy adott listanak (egyszeri elofordulassal szamolva)
+    def eleme_e(szam,lista):
+        talalt = False
+        for i in range(len(lista)):
+            if lista[i] == szam:
+                talalt = True
+                break
+        return(talalt)
+
+
+    #Tegyuk fel, hogy egy szam eleme egy adott listanak. Hanyadik eleme?
+    def hanyadik_elem(szam,lista):
+        sorszam = 0
+        for i in range(len(lista)):
+            if lista[i] == szam:
+                sorszam = i
+        return(sorszam+1)
+
+
+    print('Üdvözli Önt a Fibonacci-program! Kérem, válasszon a megfelelő numerikus billentyű lenyomásával: \n',sorelvalasztas)
+    print('A Fibonacci-sor első n elemének kiíratása --> (1)')
+    print('Megadott szám megkeresése a Fibonacci sorozaton belül, amennyiben annak eleme --> (2)')
+
+    helytelen = True
+    while helytelen:
+        valasztas = int(input())
+        if valasztas <= 0 or valasztas > 2:
+            print('Érvénytelen választás! Opciók: (1) (2)')
+        else:
+            helytelen = False
+
+
+
+
+    if valasztas == 1:
+
+        helytelen = True
+        while helytelen:
+            elemszam = int(input("Az elso hany elemet irjam ki a Fibonacci-sorozatnak? "))
+            if elemszam <= 0:
+                print("Ervenytelen szam! Elemszam >= 1!")
+            else:
+                helytelen = False
+
+        lista_elemei_kiir(fib_sorozat_n(elemszam))
+
+
+
+
+
+    elif valasztas == 2:
+
+        helytelen = True
+        while helytelen:
+            sz = int(input("Adjon meg egy nemnegatív szamot! "))
+            if sz < 0:
+                print("Érvénytelen szám! Csak nemnegatív szamot adhat meg!")
+            else:
+                helytelen = False
+
+
+        #Elv: ha magat a megadott szamot adjuk meg elemszamkent elemszam>6 esten, akkor biztosan teljesül: Fibonacci[elemszam] > vizsgalt szam
+        #Az elso 6 elemet kulon vizsgáljuk, mivel addig bezárólag Fibonacci[elemszam] < vizsgalt szam
+        #Mivel az 1 és csak az 1 kétszer fordul elő a sorozatban, megengedhetjuk, hogy az eldöntés egy ágát neki szenteljük
+
+        if sz == 1:
+            print(sz, "eleme a Fibonacci-sorozatnak, mégpedig az 1. és a 2. eleme is egyben!")
+        elif sz <= 6 and sz!=1 and eleme_e(sz,fib_sorozat_n(6)):
+            print(sz,"eleme a Fibonacci-sorozatnak, mégpedig a(z)",hanyadik_elem(sz,fib_sorozat_n(7)),". eleme!")
+        elif sz > 6 and eleme_e(sz,fib_sorozat_n(sz)):
+            print(sz,"eleme a Fibonacci-sorozatnak, mégpedig a(z)",hanyadik_elem(sz,fib_sorozat_n(sz)),". eleme!")
+        else:
+            print(sz,"nem eleme a Fibonacci-sorozatnak.")
+
+
+
+except ValueError:
+    print("Ervenytelen adatbevitel! A program leall! Inditsa ujra!")
+
+

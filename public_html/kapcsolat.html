@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>Antal Adrienn - Portfólió</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Portfolio">
+        <meta name="keywords" content="HTML, CSS, portfolio, szoftverfejleszto, SZAMALK, weboldal">
+        <meta name="author" content="Antal Adrienn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="stilus.css">
+        <link rel="stylesheet" href="szerkezet.css">
+        <link href='https://fonts.googleapis.com/css?family=Margarine' rel='stylesheet'>
+    </head>
+    <body>  
+        <main>
+            <header>
+                <div class="left">
+                    <a href="index.html"><img src="images/ilovegreece.png" alt="I love Greece"></a>
+                </div>
+                <div class="right">
+                    <a href="mailto:info@szamalk-szalezi.hu"><img src="images/mail_icon.png" alt="E-mail"></a>
+                    <a href="https://www.szamalk-szalezi.hu/"><img src="images/globe_icon.png" alt="Globe"></a>
+                    <a href="https://www.facebook.com/SZAMALK.szalezi.tech.szgi/"><img src="images/fb_icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/szamalkszalezi/"><img src="images/insta_icon.png" alt="Instagram"/></a>
+                    <a href="https://www.youtube.com/channel/UCe7huQNZUKXuSgv-Um5iHLg"><img src="images/youtube_icon.png" alt="Youtube"/></a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Kezdőlap</a></li>
+                    <li><a href="munkaim.html">Munkáim</a></li>
+                    <li><a href="zene.html">Zene</a></li>
+                    <li><a href="gorogorszag.html">Görögország </a></li>
+                    <li><a href="#">Kapcsolat</a></li>
+                </ul>   
+            </nav>
+            <aside>
+
+                <img class="aside_img" src="images/lalaria_greetings.jpg" alt="Lalaria"/>
+                <img class="boat" src="images/boat.png" alt="boat"/>
+
+            </aside>        
+
+            <article>
+                <div class="art_container_kapcs">
+                    <div class="art_focim">Írd meg a véleményed!<hr></div>
+                    <div class="art_szoveg">
+                        Tetszett az oldal, vagy hagy maga után kívánnivalót? Minden építő jellegű kritikát szívesen fogadok, úhgyhogy semmiképp se rejtsd véka alá a gondolataidat; ragadj billentyűzetet, és ki vele bátran! <img src="images/cat-smiley.png" alt="cat smiley"> <br>Ami a valóságot illeti, az alábbi űrlap egyelőre csak látszatkeltés, ugyanis a bevitt adatok megfelelő feldolgozásához szerver oldali programozásra volna szükség, amely (egyelőre) nem képezi a tananyag részét. Tehát ha ki is töltöd a mezőket, majd a "Küldés" gombra kattintasz, üzeneted sajnos nem fogom megkapni.
+                    </div> 
+                    <div class="urlap">
+                        <form action="mailto:info@szamalk-szalezi.hu"   method="post" name="kerdoiv" enctype="text/plain">
+                            <fieldset>
+                                <legend>Adatok</legend> 
+                                <div class="clear">
+                                    <div class="cimke">
+                                        <label for="nev">Név:</label>
+                                    </div>                                
+                                    <div class="szovegmezo">
+                                        <input type="text" name="nev" id="nev" required maxlength="40">
+                                    </div>
+                                </div>   
+                                <div class="clear">
+                                    <div class="cimke">
+                                        <label for="email">E-mail:</label>
+                                    </div>
+                                    <div class="szovegmezo">
+                                        <input type="text" name="email" id="email" required maxlength="40">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+
+                                <legend> Értékelés </legend> 
+                                <div class="clear">
+                                    <div class="cimke">
+                                        <label for="forras">Hol/hogyan találtál rá az oldalra?</label><br>  
+                                    </div>
+                                    <div class="szovegmezo">
+                                        <input type="text" name="forras" id="forras"  maxlength="40" list="lehetosegek"><br>
+                                        <datalist id="lehetosegek">                                            
+                                            <option>Google kereső</option>
+                                            <option>A SZÁMALK-Szalézi Szakgimnázium oldalán keresztül</option>
+                                            <option>Bing kereső</option>
+                                            <option>Egyéb</option>      
+                                        </datalist>
+                                    </div>
+                                </div>
+                                <div class="clear">
+                                    <div class="cimke">Tetszik a weboldal?</div> 
+                                    <div class="szovegmezo">
+                                        <input type="radio" name="tetszett" id="k1v1" value="igen">
+                                        <label for="k1v1" >Igen</label>
+                                        <input type="radio" name="tetszett" id="k1v2" value="nem">
+                                        <label for="k1v2">Nem</label>
+                                    </div>
+                                </div>
+                                <div class="clear">
+                                    <div class="cimke">
+                                        <label for="ertekeles">Kérlek, értékeld a weboldalt a csúszka segítségével!</label>
+                                    </div>
+                                    <div class="szovegmezo">
+                                        <input type="range" name="ertekeles" id="ertekeles" min="1" max="10" value="1" step="1"  oninput="this.nextElementSibling.value = this.value">
+                                        <output>1</output>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Véleményed bővebben:</legend>                                
+                                <div class="clear">                                
+                                        <textarea name="velemeny" id="velemeny" placeholder="A véleményem:" required></textarea> 
+                                </div> 
+                                <div class="clear">
+                                    <input type="submit" value="Elküld">
+                                    <input type="reset" value="Törlés">
+                                </div> 
+                            </fieldset>
+                        </form>
+                    </div>
+ </div>
+            </article>
+
+            <section>
+            </section>
+            <footer>@ Minden jog fenntartva                
+            </footer>   
+        </main>
+    </body>
+</html>
